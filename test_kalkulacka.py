@@ -40,3 +40,9 @@ class TestValidatorHesla(TestCase):
         self.assertFalse(validator.validuj("12345"))
         self.assertFalse(validator.validuj("abcde"))
         self.assertTrue(validator.validuj("heslo123"))
+
+    def test_validuj_heslo_specialni_znaky(self):
+        validator = ValidatorHesla()
+        self.assertTrue(validator.validuj("heslo@123"))
+        self.assertTrue(validator.validuj("heslo#456"))
+        self.assertFalse(validator.validuj("heslo!"))
