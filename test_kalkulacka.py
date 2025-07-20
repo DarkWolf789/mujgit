@@ -34,3 +34,9 @@ class Test(TestCase):
 class TestValidatorHesla(TestCase):
     def test_validuj(self):
         self.fail()
+
+    def test_validuj_heslo(self):
+        validator = ValidatorHesla()
+        self.assertFalse(validator.validuj("12345"))
+        self.assertFalse(validator.validuj("abcde"))
+        self.assertTrue(validator.validuj("heslo123"))
